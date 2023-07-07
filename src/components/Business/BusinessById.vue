@@ -5,33 +5,40 @@
     </div>
     <div class="business__card-right-side">
       <h3>{{ companyDetails.name }}</h3>
-      <p class="business__description">
+      <p class="business__description-company">
         {{ companyDetails.description }}
       </p>
-      <p class="business__visit">
-        Visit <span>{{ companyDetails.name }}</span> website by clicking<span >
-         <a :href="companyDetails.url">here</a>
-          </span>
-      </p>
-      <div  v-if="companyDetails.descriptive_categories">
 
-      <p>Descriptive categories:</p>
-      <div  class="business__categories">
-        <div  v-for="item of companyDetails.descriptive_categories" :key="item" class="business__categories-list">
-         {{item.name}}
+      <div
+        v-if="companyDetails.descriptive_categories"
+        class="business__descriptive-categories"
+      >
+        <div class="business__categories">
+          <div
+            v-for="item of companyDetails.descriptive_categories"
+            :key="item"
+            class="business__categories-list"
+          >
+            {{ item.name }}
+          </div>
         </div>
       </div>
-      </div>
+
+      <p class="business__visit">
+        Visit <span>{{ companyDetails.name }}</span> website by clicking<span>
+          <a :href="companyDetails.url">here</a>
+        </span>
+      </p>
     </div>
   </div>
-    <GoBack />
+  <GoBack />
 </template>
 
 <script>
 import axios from "axios";
 import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
-import GoBack from '../GoBack/GoBack.vue';
+import GoBack from "../GoBack/GoBack.vue";
 export default {
   name: "BusinessById",
   components: {
@@ -65,9 +72,9 @@ export default {
     width: auto;
     border-radius: 10px;
     height: 430px;
-    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
     margin: 75px 30px;
     display: flex;
+    justify-content: center;
     @media screen and (max-width: 768px) {
       width: 100%;
       height: auto;
@@ -76,12 +83,14 @@ export default {
     }
   }
   &__card-left-side {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 10px;
+    margin: 0 20px;
     display: flex;
-    width: 40%;
+    width: auto;
     padding: 20px;
     justify-content: center;
-    padding: 20px;
-    background: #5893ed;
     img {
       width: 390px;
       border-radius: 10px;
@@ -89,11 +98,13 @@ export default {
     }
 
     @media screen and (max-width: 768px) {
-      width: 100%;
+      width: auto;
       padding: 30px 0;
-      border-radius: 10px 10px 0 0;
+      border-radius: 10px;
+      margin-bottom: 30px;
       img {
-        width: 290px;
+        width: 225px;
+        border-radius: 10px;
       }
     }
   }
@@ -102,20 +113,27 @@ export default {
     display: flex;
     a {
       text-decoration: none;
-    color: #5893ed;
-    font-weight: 700;
+      color: #222;
+      font-weight: 700;
     }
     span {
       font-weight: 700;
       padding: 0 5px;
     }
-     @media screen and (max-width: 768px) {
-      display: inline;
+    @media screen and (max-width: 768px) {
+      display: initial;
     }
   }
   &__card-right-side {
-    width: 60%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 10px;
+    margin: 0 20px;
+    width: 45%;
     padding: 20px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
     p {
       margin: 0;
     }
@@ -129,14 +147,14 @@ export default {
       text-align: center;
     }
   }
-  &__description {
+  &__description-company {
     text-align: justify;
     color: #222;
   }
   &__categories {
     display: flex;
     flex-flow: wrap;
-        padding-top: 10px;
+    padding-top: 10px;
   }
   &__categories-list {
     width: 116px;
@@ -147,9 +165,12 @@ export default {
     padding: 5px 0;
     display: flex;
     justify-content: center;
-    @media screen and (max-width: 768px) {
-      width: 86px;
-    }
+  }
+  &__descriptive-categories {
+    display: flex;
+    flex-flow: column;
+    align-items: baseline;
+    padding: 15px 0;
   }
 }
 </style>

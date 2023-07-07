@@ -92,7 +92,8 @@ export default {
   justify-content: space-evenly;
   margin: 35px;
   border-radius: 10px;
-  box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   &__container {
     border-bottom: 1px solid #f7f7f7;
     padding: 15px;
@@ -104,7 +105,12 @@ export default {
   }
   &__description {
     margin: 0;
-    color: #ccc;
+    color: #5b5b5b;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &__company-name {
     color: #5b5b5b;

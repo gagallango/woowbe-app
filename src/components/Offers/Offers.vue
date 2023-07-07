@@ -97,7 +97,7 @@ export default {
   justify-content: space-evenly;
   margin: 35px;
   border-radius: 10px;
-  box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   width: 800px;
   @media screen and (max-width: 1024px) {
     width: 298px;

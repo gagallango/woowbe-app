@@ -100,7 +100,7 @@ export default {
     border-radius: 10px;
     height: 430px;
     display: flex;
-    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     margin: 75px auto;
     @media screen and (max-width: 768px) {
       display: inline;
@@ -122,6 +122,9 @@ export default {
   }
   &__right-side {
     width: 70%;
+        display: flex;
+    flex-flow: column;
+    justify-content: center;
     @media screen and (max-width: 768px) {
       width: 100%;
       display: flex;
