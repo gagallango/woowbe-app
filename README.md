@@ -1,5 +1,8 @@
 # woowbe
 
+Development of the technical test for Woowbe.
+Developed in Vue.js.
+
 ## Project setup
 ```
 npm install
@@ -19,6 +22,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
