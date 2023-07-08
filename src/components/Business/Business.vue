@@ -1,17 +1,17 @@
 <template>
   <div class="business">
     <div
-      v-for="result of businessData.results"
-      :key="result"
+      v-for="business of businessData.results"
+      :key="business"
       class="business__container"
     >
       <router-link
-        :to="{ name: 'BusinessById', params: { id: result.id } }"
+        :to="{ name: 'BusinessById', params: { id: business.id } }"
         class="business__company-name"
       >
-        <p>{{ result.name }}</p>
+        <p>{{ business.name }}</p>
       </router-link>
-      <p class="business__description">{{ result.description }}</p>
+      <p class="business__description">{{ business.description }}</p>
     </div>
   </div>
   <div class="business__pagination">

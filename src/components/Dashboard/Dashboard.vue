@@ -23,13 +23,12 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import Card from "../Card/Card.vue";
 import Offers from "../Offers/Offers.vue";
 import Profile from "../Profile/Profile.vue";
 import Logout from "../Logout/Logout.vue";
 export default {
   name: "Dashboard",
-  components: { Card, Offers, Profile, Logout },
+  components: { Offers, Profile, Logout },
   setup() {
     const router = useRouter();
 
@@ -83,7 +82,7 @@ export default {
     display: flex;
     flex-flow: column;
     align-items: center;
-    justify-content: start;
+    justify-content: space-around;
     padding: 30px 0;
     @media screen and (max-width: 1024px) {
       width: 100%;
