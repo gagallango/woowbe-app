@@ -25,32 +25,33 @@
       <div class="offer__form">
         <div class="type-a">
           <label for="kind">Kind</label>
-          <input type="text" :placeholder="offerDetails.kind" />
+          <input type="text" :placeholder="offerDetails.kind" disabled/>
         </div>
         <div class="type-a">
           <label for="reward">Reward</label>
-          <input type="text" :placeholder="offerDetails.reward" />
+          <input type="text" :placeholder="offerDetails.reward" disabled/>
         </div>
         <div class="type-a">
           <label for="minimum_purchase_amount">Minimum purchase amount</label>
           <input
             type="text"
             :placeholder="offerDetails.minimum_purchase_amount"
+            disabled
           />
         </div>
         <div class="type-a">
           <label for="budget">Budget</label>
-          <input type="text" :placeholder="offerDetails.budget" />
+          <input type="text" :placeholder="offerDetails.budget" disabled/>
         </div>
 
         <div class="type-a">
           <label for="budget">Start date</label>
-          <input type="text" :placeholder="offerDetails.start_date" />
+          <input type="text" :placeholder="offerDetails.start_date" disabled/>
         </div>
 
         <div class="type-a">
           <label for="budget">Status</label>
-          <input type="text" :placeholder="offerDetails.status" />
+          <input type="text" :placeholder="offerDetails.status" disabled/>
         </div>
       </div>
     </div>

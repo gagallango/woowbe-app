@@ -1,7 +1,7 @@
 <template>
-  <div class="go-back">
-    <a @click="$router.back()"> Go back</a>
-  </div>
+  <a @click="$router.back()">
+    <div class="go-back">Go back</div>
+  </a>
 </template>
 
 <script>
@@ -22,10 +22,9 @@ export default {
   background: #e5e5e5;
   cursor: pointer;
   font-size: 12px;
-  a {
-    &:hover {
-      font-weight: 700;
-    }
+
+  &:hover {
+    font-weight: 700;
   }
 }
 </style>
