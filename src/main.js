@@ -7,7 +7,6 @@ import DefaultLayout from "./components/DefaultLayout.vue";
 import Login from "./components/Login/Login.vue";
 import Signup from "./components/Signup/Signup.vue";
 import Home from "./components/Home/Home.vue";
-import store from "./store";
 import BusinessById from "./components/Business/BusinessById.vue";
 import Dashboard from "./components/Dashboard/Dashboard.vue";
 import Offers from "./components/Offers/Offers.vue";
@@ -69,6 +68,5 @@ const router = createRouter({
 
 const app = createApp(App);
 
-app.use(store);
 app.use(router);
 app.mount("#app");

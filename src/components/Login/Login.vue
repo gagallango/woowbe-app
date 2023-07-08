@@ -62,7 +62,7 @@ export default {
   height: 100vh;
   background-color: #f1fbfc;
   text-align: center;
-  padding-top: 5%;
+  padding-top: 10%;
   img {
     width: 300px;
   }

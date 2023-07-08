@@ -18,7 +18,7 @@ export default {
 <style lang="less">
 .woowbe {
   font-family: "Roboto", sans-serif;
-  height: 100vh;
+  height: auto;
   margin: 0;
 }
 </style>
