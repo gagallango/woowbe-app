@@ -31,24 +31,31 @@
       </p>
     </div>
   </div>
+  <div v-if="companyOffers" class="business__offers">
+    <h3>Company offers</h3>
+    <OffersComponent :data="companyOffers" />
+  </div>
   <GoBack />
 </template>
 
 <script>
 import axios from "axios";
 import { useRoute } from "vue-router";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import GoBack from "../GoBack/GoBack.vue";
+import OffersComponent from "../Offers/OffersComponent.vue";
 export default {
   name: "BusinessById",
   components: {
     GoBack,
+    OffersComponent,
   },
   setup() {
     const companyDetails = ref({});
+    const companyOffers = ref({});
     const route = useRoute();
-    onMounted(() => {
-      axios
+    onMounted(async () => {
+      await axios
         .get(`/business/public/${route.params.id}/`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -57,22 +64,33 @@ export default {
         .then(({ data }) => {
           companyDetails.value = data;
         });
+
+      const offersResponse = await axios.get(
+        `/offers/public/?business=${companyDetails.value.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      companyOffers.value = offersResponse.data;
     });
 
     return {
       companyDetails,
+      companyOffers,
     };
   },
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .business {
   &__card {
     width: auto;
     border-radius: 10px;
     height: 430px;
-    margin: 75px 30px;
+    margin: 30px;
     display: flex;
     justify-content: center;
     @media screen and (max-width: 768px) {
@@ -171,6 +189,14 @@ export default {
     flex-flow: column;
     align-items: baseline;
     padding: 15px 0;
+  }
+  &__offers {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    h3 {
+      margin: 0;
+    }
   }
 }
 </style>
