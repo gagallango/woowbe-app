@@ -41,7 +41,7 @@
 <script>
 import axios from "axios";
 import { useRoute } from "vue-router";
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref } from "vue";
 import GoBack from "../GoBack/GoBack.vue";
 import OffersComponent from "../Offers/OffersComponent.vue";
 export default {

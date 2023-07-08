@@ -9,6 +9,13 @@
           <router-link to="/business"> See the companies </router-link>
         </div>
       </div>
+
+       <div class="dashboard__companies">
+         Find our points of sale
+        <div class="dashboard__section">
+          <router-link to="/points"> Points fo sale </router-link>
+        </div>
+      </div>
       <div class="dashboard__log-out">
         <Logout />
       </div>
@@ -70,7 +77,7 @@ export default {
     align-items: center;
     @media screen and (max-width: 1024px) {
       width: 100%;
-      height: 685px;
+      height: 850px;
     }
   }
   &__companies {

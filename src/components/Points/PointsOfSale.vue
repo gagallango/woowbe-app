@@ -1,60 +1,65 @@
 <template>
-  <div class="business">
+  <div class="points">
     <div
-      v-for="business of businessData.results"
-      :key="business"
-      class="business__container"
+      v-for="point of pointsOfSale.results"
+      :key="point"
+      class="points__container"
     >
       <router-link
-        :to="{ name: 'BusinessById', params: { id: business.id } }"
-        class="business__company-name"
+        :to="{ name: 'BusinessById', params: { id: point.business.id } }"
+        class="points__company-name"
       >
-        <p>{{ business.name }}</p>
+        <p class="points__name">{{ point.business.name }}</p>
       </router-link>
-      <p class="business__description">{{ business.description }}</p>
+      <p class="points__address">Address: {{ point.address }}</p>
+      <p class="points__description">City: {{ point.city }}</p>
     </div>
   </div>
   <Pagination
-      :prev="businessData.previous"
-      :next="businessData.next"
-      :location="LOCATION"
-    />
+    :prev="pointsOfSale.previous"
+    :next="pointsOfSale.next"
+    :location="LOCATION"
+  />
   <GoBack />
 </template>
 
 <script>
 import axios from "axios";
 import { onMounted, ref } from "vue";
-import {  useRoute } from "vue-router";
 import GoBack from "../GoBack/GoBack.vue";
-import Pagination from '../Pagination/index.vue'
-const LOCATION = 'business'
+import { useRoute } from "vue-router";
+import Pagination from "../Pagination/index.vue";
+const LOCATION = "business";
 export default {
   components: { GoBack, Pagination },
-  name: "Business",
+  name: "PointsOfSale",
   setup() {
-    const businessData = ref([]);
+    const pointsOfSale = ref([]);
     const route = useRoute();
     onMounted(async () => {
       const currentPage =
         route.query.page != undefined ? `page=${route.query.page}` : "";
-      const response = await axios.get(`/business/public/?${currentPage}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      businessData.value = response.data;
+      const response = await axios.get(
+        `/points_of_sales/public/?${currentPage}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      pointsOfSale.value = response.data;
     });
+
     return {
-      businessData,
-      LOCATION
+      pointsOfSale,
+      LOCATION,
     };
   },
 };
 </script>
 
 <style lang="less">
-.business {
+.points {
   flex-flow: wrap;
   background: #fff;
   justify-content: space-evenly;
@@ -70,6 +75,16 @@ export default {
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
     }
+  }
+  &__name {
+    margin: 0;
+    color: #222;
+    font-weight: 700;
+  }
+  &__address {
+    margin: 0;
+    color: #222;
+    font-weight: 400;
   }
   &__description {
     margin: 0;

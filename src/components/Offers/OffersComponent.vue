@@ -1,6 +1,10 @@
 <template>
   <div class="offers-component">
-    <div v-for="item of data.results" :key="item" class="offers-component__container">
+    <div
+      v-for="item of data.results"
+      :key="item"
+      class="offers-component__container"
+    >
       <router-link
         :to="{ name: 'OfferById', params: { id: item.id } }"
         class="offers-component__offer-name"
@@ -31,14 +35,14 @@ export default {
 </script>
 
 <style lang="less">
-
 .offers-component {
-     flex-flow: wrap;
+  flex-flow: wrap;
   background: #fff;
   justify-content: space-evenly;
   margin: 35px;
   border-radius: 10px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   width: 800px;
   @media screen and (max-width: 1024px) {
     width: 298px;
@@ -78,7 +82,6 @@ export default {
     span {
       font-weight: 700;
       color: #222;
-      
     }
   }
 }

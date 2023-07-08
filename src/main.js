@@ -13,6 +13,7 @@ import Offers from "./components/Offers/Offers.vue";
 import OfferById from "./components/Offers/OfferById.vue";
 import FinishedOffers from "./components/Offers/FinishedOffers.vue";
 import EnabledOffers from "./components/Offers/EnabledOffers.vue";
+import PointsOfSale from "./components/Points/PointsOfSale.vue";
 const routes = [
   {
     path: "/",
@@ -38,6 +39,11 @@ const routes = [
         path: "/business/:id",
         name: "BusinessById",
         component: BusinessById,
+      },
+      {
+        path: "/points",
+        name: "PointsOfSale",
+        component: PointsOfSale,
       },
       {
         path: "/dashboard",

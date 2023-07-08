@@ -55,14 +55,14 @@
       </div>
     </div>
   </div>
-    <GoBack />
+  <GoBack />
 </template>
 
 <script>
 import axios from "axios";
 import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
-import GoBack from '../GoBack/GoBack.vue';
+import GoBack from "../GoBack/GoBack.vue";
 export default {
   name: "OfferById",
   components: {
@@ -100,7 +100,8 @@ export default {
     border-radius: 10px;
     height: 430px;
     display: flex;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     margin: 75px auto;
     @media screen and (max-width: 768px) {
       display: inline;
@@ -117,12 +118,12 @@ export default {
     @media screen and (max-width: 768px) {
       width: 100%;
       height: 300px;
-           border-radius: 10px 10px 0 0;
+      border-radius: 10px 10px 0 0;
     }
   }
   &__right-side {
     width: 70%;
-        display: flex;
+    display: flex;
     flex-flow: column;
     justify-content: center;
     @media screen and (max-width: 768px) {
@@ -142,6 +143,9 @@ export default {
       padding-left: 20px;
       font-size: 35px;
       margin: 20px 0 5px;
+      @media screen and (max-width: 768px) {
+        padding-left: 0px;
+      }
     }
     label {
       color: #ccc;
