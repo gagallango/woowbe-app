@@ -5,6 +5,7 @@ import "./axios/index";
 import Business from "./components/Business/Business.vue";
 import DefaultLayout from "./components/DefaultLayout.vue";
 import Login from "./components/Login/Login.vue";
+import Signup from "./components/Signup/Signup.vue";
 import Home from "./components/Home/Home.vue";
 import store from "./store";
 import BusinessById from "./components/Business/BusinessById.vue";
@@ -29,6 +30,10 @@ const routes = [
       {
         path: "/login",
         component: Login,
+      },
+      {
+        path: "/signup",
+        component: Signup,
       },
       {
         path: "/business/:id",
